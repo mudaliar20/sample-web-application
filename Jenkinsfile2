@@ -5,17 +5,17 @@
 pipeline{
 
       agent any
+      tools {
+        maven '3.6.3' 
+    }
 
         
         stages{
 
               stage('maven build'){
                   steps{
-                      
-		    	        def mavenHome =  tool name: "3.6.3", type: "maven"
-                                def mavenCMD = "${mavenHome}/bin/mvn"
 	                   script{
-                              sh "${mavenCMD} clean package"            
+                              sh 'mvn clean install'           
                       	  }
                	     }  
                  }	
