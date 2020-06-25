@@ -5,17 +5,18 @@
 pipeline{
 
       agent any
-      
+	environment{
+		
+      PATH = "/opt/apache-maven-3.6.3/bin:$PATH"
+	}
         
         stages{
 
               stage('maven build'){
                   steps{
-		  def mavenHome =  tool name: "maven3.6.3", type: "maven"
-                  def mavenCMD = "${mavenHome}/bin/mvn"
-                      script{
-		    	                sh "${mavenCMD} clean install"
-                      	  }
+                     // script{
+		    	                sh "mvn clean install"
+                      	 // }
                	     }  
                  }	
                  
