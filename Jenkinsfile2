@@ -14,7 +14,7 @@ pipeline{
               stage('maven build'){
                   steps{
 	                   script{
-                              sh "mvn clean install"
+                              sh "D:/apache-maven-3.6.3-bin/apache-maven-3.6.3/bin/mvn clean install"
                       	  }
                	     }  
                  }	
