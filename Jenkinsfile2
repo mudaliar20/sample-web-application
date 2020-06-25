@@ -1,20 +1,20 @@
+#!/usr/bin/env groovy
+
 @Library('shared-library@master') _ //master or whatever branch
 
 pipeline{
 
       agent any
-     environment
-     {
-     PATH = "D:/apache-maven-3.6.3-bin/apache-maven-3.6.3/bin:$PATH"
-     }
-
+      
         
         stages{
 
               stage('maven build'){
                   steps{
-	                   script{
-                              sh "D:/apache-maven-3.6.3-bin/apache-maven-3.6.3/bin/mvn clean install"
+		  def mavenHome =  tool name: "maven3.6.3", type: "maven"
+                  def mavenCMD = "${mavenHome}/bin/mvn"
+                      script{
+		    	                sh "${mavenCMD} clean install"
                       	  }
                	     }  
                  }	
@@ -27,5 +27,3 @@ pipeline{
 		
            }	       	     	         
 }
-	       	     	         
-
