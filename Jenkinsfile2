@@ -3,9 +3,10 @@
 pipeline{
 
       agent any
-      tools {
-        maven '3.6.3' 
-    }
+     environment
+     {
+     PATH = "D:\apache-maven-3.6.3-bin\apache-maven-3.6.3\bin:$PATH"
+     }
 
         
         stages{
