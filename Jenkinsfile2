@@ -1,3 +1,4 @@
+
 #!/usr/bin/env groovy
 
 //@Library('shared-library@master') _ //master or whatever branch
@@ -5,21 +6,17 @@
 pipeline{
 
       agent any
-	//{
-              //  docker {
-              //  image 'maven'
-             //   args '-v $HOME/.m2:/root/.m2'
-               // }
-           // }
+
         
         stages{
 
               stage('maven build'){
                   steps{
-                      script{
-		    	                def mavenHome =  tool name: "3.6.3", type: "maven"
-      def mavenCMD = "${mavenHome}/bin/mvn"
-      sh "${mavenCMD} clean package"            
+                      
+		    	        def mavenHome =  tool name: "3.6.3", type: "maven"
+                                def mavenCMD = "${mavenHome}/bin/mvn"
+	                   script{
+                              sh "${mavenCMD} clean package"            
                       	  }
                	     }  
                  }	
@@ -32,3 +29,5 @@ pipeline{
 		
            }	       	     	         
 }
+	       	     	         
+
