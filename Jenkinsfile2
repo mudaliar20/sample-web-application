@@ -5,7 +5,7 @@ pipeline{
       agent any
      environment
      {
-     PATH = "D:\apache-maven-3.6.3-bin\apache-maven-3.6.3\bin:$PATH"
+     PATH = "D:/apache-maven-3.6.3-bin/apache-maven-3.6.3/bin:$PATH"
      }
 
         
